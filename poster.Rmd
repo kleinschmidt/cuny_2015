@@ -1,0 +1,48 @@
+# Informativity in adaptation: Supervised and unsupervised learning of linguistic cue distributions #
+
+## Background ##
+
+* Categories (/b/ and /p/) are distributions of cues (VOT, f0, etc.)
+* Distributional learning:
+    * Acquisition: learn **language** distributions
+    * Adaptation: learn **talker's** distributions
+* Acquisition is slow and hard, adaptation fast and easy. Why?
+* Labels: lots of information from context (visual, lexical, etc.) that _labels_ cues for listener.
+* Do listeners actually use labels for adaptation when they're provided?  Hasn't been a good test.
+
+## Procedure ##
+
+* Unlabeled trials: hear "[b/p]each", click on beach or peach 
+* Distributional learning paradigm
+    * Hear distribution of VOTs **FIGURE**
+    * Predict classification function from distribution **FIGURE**
+    * Compare to actual responses
+
+## Experiment 1 ##
+
+* Distributions: 
+    * Unshifted
+    * +10ms
+* **98%** accurate on labeled trials
+* Good learning (matched predicted category boundaries)
+* **No effect of labels**
+
+## Experiments 2+3 ##
+
+* Too easy?  Use bigger shifts
+    * +20ms
+    * +30ms
+* Learning there, but not as good.
+* **Still no effect of labels**
+
+## Experiment 4 ##
+
+* Stimulus-specific learning?  Mix up labeled and unlabeled trials
+* All shifts: +0, +10, +20, +30ms
+* Nothing changes.
+
+## Conclusion ##
+
+* Listeners **don't use labels** to speed up or improve adaptation.
+* More like acquisition: rely on distributions.
+* But other sources of information _do_ matter: less adaptation to weirder distributions (+20 and +30 ms shifts)

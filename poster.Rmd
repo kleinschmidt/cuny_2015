@@ -20,14 +20,158 @@
 
 ## Experiment 1 ##
 
+```{r preamble, echo=FALSE, results='hide', cache=FALSE}
+library(knitr)
+knitr::opts_chunk$set(cache=TRUE, 
+                      autodep=TRUE,
+                      dev=c('pdf', 'svg', 'png'),
+                      echo=FALSE,
+                      results='hide',
+                      warning=FALSE,
+                      message=FALSE)
+
+library(lme4)
+
+library(devtools)
+devtools::load_all('../../analysis')
+
+# pre-parsed + excluded data from package
+dat <- supunsup_clean
+
+dat_mod <- dat %>%
+  filter(trialSupCond == 'unsupervised' | supCond == 'unsupervised') %>%
+  mutate_for_lmer()
+
+```
+
+```{r fit-model}
+
+dat_fit <- glmer(respP ~ trial.s * vot_rel.s * supCond * bvotCond +
+                   (trial.s * vot_rel.s | subject),
+                 data = dat_mod,
+                 family = 'binomial',
+                 control = glmerControl(optimizer = 'bobyqa'))
+
+```
+
+```{r}
+library(ggplot2)
+theme_set(theme_bw())
+
+# size for three-panel results figures
+res_w <- 11
+res_h <- 5
+
+# formatting boilerplate:
+format_results_plot <- function(p) {
+  p + 
+    scale_color_discrete('Shift (ms)', drop=FALSE) + 
+    scale_fill_discrete('Shift (ms)', drop=FALSE) +
+    scale_x_continuous('VOT (ms)', breaks=seq(-20, 80, by=20)) + 
+    scale_y_continuous('Proportion /p/ response') +
+    scale_linetype_discrete('Condition')
+}
+```
+
+```{r make-predictions}
+
+add_experiment <- function(data_) {
+  data_ %>%
+    mutate(experiment = 
+             ifelse(supCond == 'mixed', 'Experiment 4',
+                    ifelse(bvotCond == 20, 'Experiment 2',
+                           ifelse(bvotCond == 30, 'Experiment 3',
+                                  'Experiment 1'))))
+}
+
+dat_pred <- make_prediction_data(dat, dat_mod) %>% add_experiment
+
+# raw average respond-P probability
+respP_by_thirds <- dat %>%
+  mutate(thirds=ntile(trial, 3)) %>%
+  select(-trial) %>%
+  left_join(bin_trials(dat)) %>%
+  group_by(supCond, trialSupCond, trial_range, bvotCond, vot) %>%
+  summarise(respP = mean(respP)) %>%
+  add_experiment
+
+respP_by_thirds_unlab <- respP_by_thirds %>%
+  mutate(type='data') %>%               # for plotting along w/ glmer fits
+  filter(trialSupCond == 'unsupervised')
+
+```
+
+```{r}
+
+dat_ex1 <- dat %>%
+  add_experiment %>%
+  filter(experiment == 'Experiment 1')
+  
+sup_acc_ex1 <- dat_ex1 %>%
+  filter(supCond == 'supervised',
+         trialSupCond == 'supervised') %>%
+  summarise(acc = mean(respCategory == respCat))
+
+```
+
+```{r expt1-stim-counts, fig.width=12, fig.height=3}
+
+dat %>%
+  group_by(bvotCond) %>%
+  filter(subject == first(subject)) %>%
+  group_by(bvotCond, vot) %>%
+  tally() %>%
+  ggplot(aes(x=vot, y=n, fill=factor(bvotCond))) +
+  geom_bar(stat='identity') +
+  facet_grid(.~bvotCond) +
+  scale_x_continuous('VOT (ms)', breaks=seq(-20, 80, by=20))
+
+```
+
+```{r a-normal-distribution}
+curve(dnorm, from=-4, to=4)
+```
+
+```{r a-logistic-function}
+curve(plogis, from=-6, to=6)
+```
+
 * Distributions: 
     * Unshifted
     * +10ms
-* **98%** accurate on labeled trials
+* **`r round(sup_acc_ex1 * 100)`%** accurate on labeled trials
 * Good learning (matched predicted category boundaries)
 * **No effect of labels**
 
+```{r expt1-results, fig.width=res_w, fig.height=res_h}
+
+expt1_respP <- respP_by_thirds_unlab %>%
+  filter(experiment == 'Experiment 1')
+
+predict_and_plot(filter(dat_pred, experiment == 'Experiment 1'),
+                 dat_fit,
+                 show_se=TRUE) %>%
+  format_results_plot + 
+  geom_point(data = expt1_respP, aes(y=respP)) +
+  geom_line(data = expt1_respP, aes(y=respP))
+
+```
+
 ## Experiments 2+3 ##
+
+```{r expt2-3-results, fig.width=res_w, fig.height=res_h}
+
+expt23_respP <- respP_by_thirds_unlab %>%
+  filter(experiment %in% c('Experiment 2', 'Experiment 3'))
+
+predict_and_plot(filter(dat_pred, experiment %in% c('Experiment 2', 'Experiment 3')),
+                 dat_fit,
+                 show_se=TRUE) %>%
+  format_results_plot + 
+  geom_point(data = expt23_respP, aes(y=respP)) + 
+  geom_line(data = expt23_respP, aes(y=respP))
+
+```
 
 * Too easy?  Use bigger shifts
     * +20ms
@@ -36,6 +180,20 @@
 * **Still no effect of labels**
 
 ## Experiment 4 ##
+
+```{r expt4-results, fig.width=res_w, fig.height=res_h}
+
+expt4_respP <- respP_by_thirds_unlab %>%
+  filter(experiment == 'Experiment 4' | supCond == 'unsupervised')
+
+predict_and_plot(filter(dat_pred, supCond %in% c('mixed', 'unsupervised')),
+                 dat_fit,
+                 show_se=TRUE) %>%
+  format_results_plot + 
+  geom_point(data = expt4_respP, aes(y=respP)) + 
+  geom_line(data = expt4_respP, aes(y=respP))
+
+```
 
 * Stimulus-specific learning?  Mix up labeled and unlabeled trials
 * All shifts: +0, +10, +20, +30ms

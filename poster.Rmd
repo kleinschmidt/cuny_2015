@@ -1,13 +1,18 @@
 # Informativity in adaptation: Supervised and unsupervised learning of linguistic cue distributions #
 
+* **Do people use informative lables during adaptation?**
+    * Adapting to unusual productions is a lot easier when you know what the talker meant to say
+    * But no studies have directly compared **labeled** and **unlabeled** adaptation
+
 ## Background ##
 
 * Categories (/b/ and /p/) are distributions of cues (VOT, f0, etc.)
 * Distributional learning:
     * Acquisition: learn **language** distributions
     * Adaptation: learn **talker's** distributions
-* Acquisition is slow and hard, adaptation fast and easy. Why?
-* Labels: lots of information from context (visual, lexical, etc.) that _labels_ cues for listener.
+* Same underlying process?
+    * Acquisition is slow and hard, adaptation fast and easy. Why?
+    * Labels: lots of information from context (visual, lexical, etc.) that _labels_ cues for listener.
 * Do listeners actually use labels for adaptation when they're provided?  Hasn't been a good test.
 
 ## Procedure ##

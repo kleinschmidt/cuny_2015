@@ -9697,9 +9697,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.14651623"
-     inkscape:cx="1681.4327"
-     inkscape:cy="1540.2141"
+     inkscape:zoom="0.1767767"
+     inkscape:cx="1915.7157"
+     inkscape:cy="1399.4451"
      inkscape:document-units="in"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -9742,7 +9742,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -9908,29 +9908,6 @@
          style="font-size:48px;font-weight:normal" /><flowPara
          id="flowPara3711"
          style="font-size:48px;font-weight:normal">%%ssd</flowPara></flowRoot>    <g
-       id="g4522"
-       transform="translate(-767.2214,210.27155)">
-      <path
-         sodipodi:nodetypes="cssssc"
-         inkscape:connector-curvature="0"
-         id="path3751"
-         d="m 910.83715,2647.1121 c 27.73277,9.4601 60.21391,14.901 94.93625,14.901 101.8543,0 184.4235,-46.8176 184.4235,-104.57 0,-57.7524 -82.5692,-104.57 -184.4235,-104.57 -101.8543,0 -184.4235,46.8176 -184.4235,104.57 0,25.0089 15.48345,47.9673 41.31146,65.9614 l -35.71843,73.9744 z"
-         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#bcbcbc;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
-         transform="translate(0,-2187.675)" />
-      <text
-         transform="translate(0,-2187.675)"
-         sodipodi:linespacing="125%"
-         id="text3743"
-         y="2581.5862"
-         x="856.60962"
-         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-         xml:space="preserve"><tspan
-           y="2581.5862"
-           x="856.60962"
-           id="tspan3745"
-           sodipodi:role="line">[b/p]each</tspan></text>
-    </g>
-    <g
        id="g15475"
        transform="matrix(0.9,0,0,0.9,21.890014,-18.646908)">
       <g
@@ -10379,13 +10356,6 @@
         </g>
       </g>
     </g>
-    <rect
-       x="-722.78162"
-       y="123.79968"
-       width="630"
-       height="630"
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="rect15051" />
     <g
        id="g15407"
        transform="matrix(0.9,0,0,0.9,127.87268,-18.845624)">
@@ -19609,95 +19579,87 @@
            sodipodi:role="line">10ms shift</tspan></text>
     </g>
     <g
-       id="g50973"
-       transform="matrix(0.91557157,0,0,0.91557157,94.87958,31.220672)">
-      <g
-         transform="translate(-54.224184,-364)"
-         id="g13416">
-        <g
-           id="g3677"
-           transform="matrix(1.298156,0,0,1.298156,-510.6604,218.72912)">
-          <image
-             width="250"
-             height="250"
-             xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/peach.png"
-             id="image3526"
-             x="1188.4572"
-             y="313.15225" />
-          <image
-             y="313.15225"
-             x="860.90887"
-             id="image3671"
-             xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/beach.png"
-             height="250"
-             width="250" />
-        </g>
-        <text
-           xml:space="preserve"
-           style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica Bold"
-           x="610.34613"
-           y="657.31671"
-           id="text3030"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3032"
-             x="610.34613"
-             y="657.31671">Unlabeled</tspan></text>
-      </g>
-      <rect
-         transform="translate(0,-2187.675)"
-         y="2393.1277"
-         x="522.83423"
-         height="403.55646"
-         width="801.14905"
-         id="rect37809"
-         style="fill:none;stroke:#000000;stroke-width:2.97000003;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:5.94, 5.94;stroke-dashoffset:9.20699991" />
+       id="g14961"
+       transform="translate(1712,-298)">
+      <image
+         width="250"
+         height="250"
+         xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/peach.png"
+         id="image3526"
+         x="-448.29391"
+         y="882.83276" />
+      <image
+         y="882.83276"
+         x="-771.49365"
+         id="image3671"
+         xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/beach.png"
+         height="250"
+         width="250" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:43.30971909px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica Bold"
+       x="1142.0521"
+       y="561.53168"
+       id="text3030"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3032"
+         x="1142.0521"
+         y="561.53168"
+         style="font-size:72px">Unlabeled</tspan></text>
+    <g
+       id="g14965"
+       transform="translate(836,-46)">
+      <image
+         width="250"
+         height="250"
+         xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/beach.png"
+         id="image3464"
+         x="-771.49365"
+         y="632.83264" />
+      <image
+         width="250"
+         height="250"
+         xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/peas.png"
+         id="image3668"
+         x="-448.29391"
+         y="632.83264" />
     </g>
     <g
-       id="g50982"
-       transform="matrix(0.92285226,0,0,0.92285226,90.93043,45.476366)">
-      <g
-         transform="translate(-18,444)"
-         id="g13423">
-        <g
-           id="g3673"
-           transform="matrix(1.2838701,0,0,1.2838701,560.14091,-156.43792)">
-          <image
-             width="250"
-             height="250"
-             xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/beach.png"
-             id="image3464"
-             x="24.502604"
-             y="309.11163" />
-          <image
-             width="250"
-             height="250"
-             xlink:href="file:///Users/dkleinschmidt/code/experiments/adapt/sup-unsup/stimuli_images/peas.png"
-             id="image3668"
-             x="353.95441"
-             y="309.11163" />
-        </g>
-        <text
-           xml:space="preserve"
-           style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica Bold"
-           x="598.61475"
-           y="277.36575"
-           id="text3026"
-           sodipodi:linespacing="125%"><tspan
-             sodipodi:role="line"
-             id="tspan3028"
-             x="598.61475"
-             y="277.36575">Labeled</tspan></text>
-      </g>
-      <rect
+       id="g4522"
+       transform="matrix(0.76611208,0,0,0.76611208,-12.150395,166.53745)">
+      <path
+         sodipodi:nodetypes="cssssc"
+         inkscape:connector-curvature="0"
+         id="path3751"
+         d="m 910.83715,2647.1121 c 27.73277,9.4601 60.21391,14.901 94.93625,14.901 101.8543,0 184.4235,-46.8176 184.4235,-104.57 0,-57.7524 -82.5692,-104.57 -184.4235,-104.57 -101.8543,0 -184.4235,46.8176 -184.4235,104.57 0,25.0089 15.48345,47.9673 41.31146,65.9614 l -35.71843,73.9744 z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#bcbcbc;stroke-width:8;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+         transform="translate(0,-2187.675)" />
+      <text
          transform="translate(0,-2187.675)"
-         y="2830.4797"
-         x="520.84631"
-         height="367.77313"
-         width="805.125"
-         id="rect37811"
-         style="fill:none;stroke:#000000;stroke-width:2.97000003;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:9.20699991" />
+         sodipodi:linespacing="125%"
+         id="text3743"
+         y="2581.5862"
+         x="856.60962"
+         style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         xml:space="preserve"><tspan
+           y="2581.5862"
+           x="856.60962"
+           id="tspan3745"
+           sodipodi:role="line">[b/p]each</tspan></text>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-size:72px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica Bold"
+       x="63.438416"
+       y="561.60199"
+       id="text3026"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3028"
+         x="63.438416"
+         y="561.60199">Labeled</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
@@ -22148,7 +22110,7 @@
        sodipodi:cy="1717.2832"
        sodipodi:rx="8.5067978"
        sodipodi:ry="8.5067978"
-       d="m 1058.7691,1717.2832 a 8.5067978,8.5067978 0 1 1 -17.0136,0 8.5067978,8.5067978 0 1 1 17.0136,0 z"
+       d="m 1058.7691,1717.2832 c 0,4.6982 -3.8086,8.5068 -8.5068,8.5068 -4.6981,0 -8.5068,-3.8086 -8.5068,-8.5068 0,-4.6982 3.8087,-8.5068 8.5068,-8.5068 4.6982,0 8.5068,3.8086 8.5068,8.5068 z"
        transform="translate(174.06217,-1956.6458)" />
     <g
        id="g50766"

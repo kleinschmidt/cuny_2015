@@ -59,7 +59,7 @@ dat_fit <- glmer(respP ~ trial.s * vot_rel.s * supCond * bvotCond +
 
 ```
 
-```{r}
+```{r, cache=FALSE}
 library(ggplot2)
 theme_set(theme_bw())
 
@@ -75,6 +75,23 @@ format_results_plot <- function(p) {
     scale_x_continuous('VOT (ms)', breaks=seq(-20, 80, by=20)) + 
     scale_y_continuous('Proportion /p/ response') +
     scale_linetype_discrete('Condition')
+}
+
+plot_category_bounds <- function(cat_bounds) {
+  ggplot(cat_bounds,
+         aes(x=bvotCond,
+             y=boundary_vot,
+             ymin=boundary_vot - 1.96*boundary_vot_se,
+             ymax=boundary_vot + 1.96*boundary_vot_se,
+             color=bvotCond, linetype=supCond,
+             group=paste(shift, supCond))) +
+    geom_pointrange(size=1.5, position=position_dodge(w=0.75)) +
+    geom_point(aes(y=boundary_vot_true), shape=1, size=6) + 
+    scale_color_discrete(drop=FALSE) +
+    theme(legend.position='none') +
+    scale_x_discrete('Shift (ms VOT)') +
+    scale_y_continuous('/b/-/p/ boundary (ms VOT)') +
+    coord_flip()
 }
 ```
 
@@ -103,6 +120,8 @@ respP_by_thirds <- dat %>%
 respP_by_thirds_unlab <- respP_by_thirds %>%
   mutate(type='data') %>%               # for plotting along w/ glmer fits
   filter(trialSupCond == 'unsupervised')
+
+cat_bounds <- category_boundaries(dat_mod, dat_fit) %>% add_experiment
 
 ```
 
@@ -177,6 +196,14 @@ predict_and_plot(filter(dat_pred, experiment == 'Experiment 1'),
 
 ```
 
+```{r expt1-cat-bounds, fig.width=4, fig.height=3}
+
+cat_bounds %>%
+  filter(experiment == 'Experiment 1') %>%
+  plot_category_bounds()
+
+```
+
 ## Experiments 2+3 ##
 
 ```{r expt2-3-results, fig.width=res_w, fig.height=res_h}
@@ -190,6 +217,14 @@ predict_and_plot(filter(dat_pred, experiment %in% c('Experiment 2', 'Experiment 
   format_results_plot + 
   geom_point(data = expt23_respP, aes(y=respP)) + 
   geom_line(data = expt23_respP, aes(y=respP))
+
+```
+
+```{r expt2-3-cat-bounds, fig.width=4, fig.height=3}
+
+cat_bounds %>%
+  filter(experiment %in% c('Experiment 2', 'Experiment 3')) %>%
+  plot_category_bounds()
 
 ```
 
@@ -214,6 +249,15 @@ predict_and_plot(filter(dat_pred, supCond %in% c('mixed', 'unsupervised')),
   geom_line(data = expt4_respP, aes(y=respP))
 
 ```
+
+```{r expt4-cat-bounds, fig.width=6, fig.height=5}
+
+cat_bounds %>%
+  filter(experiment == 'Experiment 4' | supCond == 'unsupervised') %>%
+  plot_category_bounds
+
+```
+
 
 * Stimulus-specific learning?  Mix up labeled and unlabeled trials
 * All shifts: +0, +10, +20, +30ms

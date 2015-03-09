@@ -77,20 +77,25 @@ format_results_plot <- function(p) {
     scale_linetype_discrete('Condition')
 }
 
-plot_category_bounds <- function(cat_bounds) {
+plot_category_bounds <- function(cat_bounds, dodge_w = 0.75) {
   ggplot(cat_bounds,
-         aes(x=bvotCond,
+         aes(x=factor(bvotCond, levels=rev(levels(bvotCond))),
              y=boundary_vot,
              ymin=boundary_vot - 1.96*boundary_vot_se,
              ymax=boundary_vot + 1.96*boundary_vot_se,
-             color=bvotCond, linetype=supCond,
+             color=bvotCond,
+             linetype=factor(supCond,
+               levels=c('unsupervised', 'supervised', 'mixed')),
              group=paste(shift, supCond))) +
-    geom_pointrange(size=1.5, position=position_dodge(w=0.75)) +
+    geom_pointrange(size=1.5, position=position_dodge(w=dodge_w)) +
     geom_point(aes(y=boundary_vot_true), shape=1, size=6) + 
     scale_color_discrete(drop=FALSE) +
+    scale_linetype_manual(drop=FALSE,
+                          values = c(1, 2, 3)) + 
     theme(legend.position='none') +
     scale_x_discrete('Shift (ms VOT)') +
-    scale_y_continuous('/b/-/p/ boundary (ms VOT)') +
+    scale_y_continuous('/b/-/p/ boundary (ms VOT)',
+                       breaks = seq(10, 60, by=5)) +
     coord_flip()
 }
 ```
@@ -125,6 +130,27 @@ cat_bounds <- category_boundaries(dat_mod, dat_fit) %>% add_experiment
 
 ```
 
+```{r labeled-summary, fig.height=3, fig.width=2}
+
+se <- function(x) {sd(x)/length(x)}
+
+# responses and accuracy on labeled trials across all experiments:
+labeled_summary <- dat %>%
+  filter(labeled == 'labeled') %>%
+  add_experiment %>%
+  mutate(labelCat = respCategory) %>%
+  group_by(labelCat, subject) %>%
+  summarise(acc = mean(labelCat == respCat),
+            respP = mean(respP)) %>%
+  summarise_each(funs(mean, se))
+
+ggplot(labeled_summary, aes(x=labelCat, y=respP_mean)) +
+  geom_bar(stat='identity') +
+  scale_x_discrete('Labeled as') +
+  scale_y_continuous('Proportion /p/ responses', breaks=c(0, 0.5, 1))
+
+```
+
 ```{r}
 
 dat_ex1 <- dat %>%
@@ -152,7 +178,7 @@ dat %>%
 
 ```
 
-```{r sup-unsup-mixed-stim-counts, fig.widht=12, fig.height=3}
+```{r sup-unsup-mixed-stim-counts, fig.widht=12, fig.height=2}
 
 dat %>%
   filter(bvotCond == 0) %>%
@@ -160,8 +186,9 @@ dat %>%
   filter(subject == first(subject)) %>%
   group_by(supCond, labeled, vot) %>%
   tally %>%
-  ggplot(aes(x=vot, y=n, linetype=labeled)) +
-  geom_bar(stat='identity', fill='white', size=2, color='black') +
+  ggplot(aes(x=vot, y=n, fill=labeled)) +
+  geom_bar(stat='identity') +
+  scale_fill_manual(values = c('black', 'gray')) + 
   facet_grid(.~supCond) +
   scale_x_continuous('VOT (ms)', breaks=seq(-20, 80, by=20))
 
@@ -196,11 +223,15 @@ predict_and_plot(filter(dat_pred, experiment == 'Experiment 1'),
 
 ```
 
-```{r expt1-cat-bounds, fig.width=4, fig.height=3}
+```{r expt1-cat-bounds, fig.width=4, fig.height=3, cache=FALSE}
 
 cat_bounds %>%
   filter(experiment == 'Experiment 1') %>%
-  plot_category_bounds()
+  plot_category_bounds() +
+  scale_y_continuous('/b/-/p/ boundary (ms VOT)',
+                     breaks = seq(10, 60, by=5),
+                     limits = c(18, 32))
+
 
 ```
 
@@ -220,7 +251,8 @@ predict_and_plot(filter(dat_pred, experiment %in% c('Experiment 2', 'Experiment 
 
 ```
 
-```{r expt2-3-cat-bounds, fig.width=4, fig.height=3}
+```{r expt2-3-cat-bounds, fig.width=5.5, fig.height=3, cache=FALSE}
+
 
 cat_bounds %>%
   filter(experiment %in% c('Experiment 2', 'Experiment 3')) %>%
@@ -250,11 +282,12 @@ predict_and_plot(filter(dat_pred, supCond %in% c('mixed', 'unsupervised')),
 
 ```
 
-```{r expt4-cat-bounds, fig.width=6, fig.height=5}
+```{r expt4-cat-bounds, fig.width=8, fig.height=3, cache=FALSE}
+
 
 cat_bounds %>%
   filter(experiment == 'Experiment 4' | supCond == 'unsupervised') %>%
-  plot_category_bounds
+  plot_category_bounds(dodge_w=1)
 
 ```
 

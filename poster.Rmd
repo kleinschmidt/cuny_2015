@@ -282,7 +282,7 @@ predict_and_plot(filter(dat_pred, supCond %in% c('mixed', 'unsupervised')),
 
 ```
 
-```{r expt4-cat-bounds, fig.width=8, fig.height=3, cache=FALSE}
+```{r expt4-cat-bounds, fig.width=7, fig.height=3, cache=FALSE}
 
 
 cat_bounds %>%

@@ -63,6 +63,29 @@ dat_fit <- glmer(respP ~ trial.s * vot_rel.s * supCond * bvotCond +
 library(ggplot2)
 theme_set(theme_bw())
 
+four_colors <-
+  c("#255984",     # blue
+    "#CC8A2E",     # yellow
+    "#CC5B2E",     # red-orange
+    "#208C5E")     # green
+
+four_colors_saturated <-
+  c("#1461A1",
+    "#F99710",
+    "#F95210",
+    "#0BAB66")
+
+
+scale_color_discrete <- function(...) {
+  scale_color_manual(values = four_colors_saturated, ...)
+}
+
+scale_fill_discrete <- function(...) {
+  scale_fill_manual(values = four_colors_saturated, ...)
+}
+
+                         
+
 # size for three-panel results figures
 res_w <- 11
 res_h <- 5
@@ -164,7 +187,7 @@ sup_acc_ex1 <- dat_ex1 %>%
 
 ```
 
-```{r expt1-stim-counts, fig.width=12, fig.height=3}
+```{r expt1-stim-counts, fig.width=12, fig.height=3, cache=FALSE}
 
 dat %>%
   group_by(bvotCond) %>%
@@ -178,7 +201,7 @@ dat %>%
 
 ```
 
-```{r sup-unsup-mixed-stim-counts, fig.widht=12, fig.height=2}
+```{r sup-unsup-mixed-stim-counts, fig.widht=12, fig.height=2, cache=FALSE}
 
 dat %>%
   filter(bvotCond == 0) %>%
@@ -237,7 +260,7 @@ cat_bounds %>%
 
 ## Experiments 2+3 ##
 
-```{r expt2-3-results, fig.width=res_w, fig.height=res_h}
+```{r expt2-3-results, fig.width=res_w, fig.height=res_h, cache=FALSE}
 
 expt23_respP <- respP_by_thirds_unlab %>%
   filter(experiment %in% c('Experiment 2', 'Experiment 3'))
@@ -268,7 +291,7 @@ cat_bounds %>%
 
 ## Experiment 4 ##
 
-```{r expt4-results, fig.width=res_w, fig.height=res_h}
+```{r expt4-results, fig.width=res_w, fig.height=res_h, cache=FALSE}
 
 expt4_respP <- respP_by_thirds_unlab %>%
   filter(experiment == 'Experiment 4' | supCond == 'unsupervised')

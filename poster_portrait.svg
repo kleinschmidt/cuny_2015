@@ -27143,11 +27143,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.28123327"
-     inkscape:cx="1855.6555"
-     inkscape:cy="1625.0333"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="1042.6403"
+     inkscape:cy="1492.8084"
      inkscape:document-units="px"
-     inkscape:current-layer="g23257"
+     inkscape:current-layer="layer1"
      showgrid="false"
      units="ft"
      inkscape:window-width="1680"
@@ -27180,8 +27180,8 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="BG"
-     sodipodi:insensitive="true"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <rect
        style="color:#000000;fill:#e7e7e7;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:7.97200012;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        id="rect88639"
@@ -27366,13 +27366,13 @@
        xml:space="preserve"
        style="font-size:78.15368652px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        x="64.304054"
-       y="-2599.2678"
+       y="-2615.2678"
        id="text14969"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan14971"
          x="64.304054"
-         y="-2599.2678"
+         y="-2615.2678"
          style="font-weight:normal">Do people use <tspan
    style="font-weight:bold"
    id="tspan88859"
@@ -27380,12 +27380,12 @@
     <text
        sodipodi:linespacing="125%"
        id="text14973"
-       y="-2714.729"
+       y="-2698.729"
        x="66.243828"
        style="font-size:88.34365082px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        xml:space="preserve"><tspan
          style="font-weight:bold"
-         y="-2714.729"
+         y="-2698.729"
          x="66.243828"
          id="tspan14975"
          sodipodi:role="line">Our question:</tspan></text>
@@ -27393,7 +27393,7 @@
        xml:space="preserve"
        id="flowRoot17084"
        style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-       transform="matrix(1.2575891,0,0,1.2575891,16.198734,-3687.7422)"><flowRegion
+       transform="matrix(1.2575891,0,0,1.2575891,16.198734,-3689.7422)"><flowRegion
          id="flowRegion17086"><rect
            id="rect17088"
            width="1552.7015"
@@ -27401,7 +27401,7 @@
            x="41.8974"
            y="897.5545" /></flowRegion><flowPara
          id="flowPara17090"
-         style="font-size:47.71033859px;line-height:120.00000477%">Language learning doesn't stop in adults: talkers use linguistic cues to realize their intentions in different ways.  To <flowSpan
+         style="font-size:47.71033859px;line-height:120.00000477%">Language learning doesn't stop once you reach adulthood: talkers use linguistic cues to realize their intentions in different ways.  To <flowSpan
    style="font-size:47.71033859px;font-weight:bold;line-height:120.00000477%"
    id="flowSpan17092">adapt</flowSpan> to a new talker, you have to learn the way they use cues.  If you know their intented meaning, this learning should be a lot easier.  Learning with known category labels is called <flowSpan
    style="font-size:47.71033859px;font-weight:bold;line-height:120.00000477%"
@@ -27411,13 +27411,13 @@
        xml:space="preserve"
        style="font-size:72px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        x="2134.2998"
-       y="-2715.7424"
+       y="-2709.7424"
        id="text3685"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3687"
          x="2134.2998"
-         y="-2715.7424"
+         y="-2709.7424"
          style="font-weight:bold">Why we ask:</tspan></text>
     <flowRoot
        xml:space="preserve"
@@ -28695,6 +28695,16 @@
                height="1" />
           </g>
         </g>
+        <path
+           sodipodi:type="arc"
+           style="fill:none;stroke:#1461a1;stroke-width:2.01829672;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:9.20699991"
+           id="path46533-9-1"
+           sodipodi:cx="1050.2623"
+           sodipodi:cy="1717.2832"
+           sodipodi:rx="8.5067978"
+           sodipodi:ry="8.5067978"
+           d="m 1058.7691,1717.2832 a 8.5067978,8.5067978 0 1 1 -17.0136,0 8.5067978,8.5067978 0 1 1 17.0136,0 z"
+           transform="matrix(1.6515576,0,0,1.6515576,-1006.9954,-2974.9924)" />
       </g>
       <text
          sodipodi:linespacing="125%"
@@ -28722,49 +28732,51 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot37877-8"
-       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-       transform="translate(103.55361,-3724.106)"><flowRegion
+       style="font-size:36px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:110.00000238%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+       transform="translate(103.55361,-3710.106)"><flowRegion
          id="flowRegion37879-1"><rect
            id="rect37881-2"
            width="406.98529"
            height="140.27959"
            x="36.548252"
            y="2182.9121"
-           style="font-size:36px" /></flowRegion><flowPara
+           style="font-size:36px;line-height:110.00000238%" /></flowRegion><flowPara
          id="flowPara37883-1"
-         style="font-size:36px">VOT drawn from a <flowSpan
-   style="font-size:36px;font-weight:bold"
+         style="font-size:36px;line-height:110.00000238%">VOTs are drawn from a <flowSpan
+   style="font-size:36px;font-weight:bold;line-height:110.00000238%"
    id="flowSpan37903-5">bimodal distribution</flowSpan></flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot37885-9"
-       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-       transform="translate(129.83754,-3723.961)"><flowRegion
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:110.00000238%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+       transform="translate(129.83754,-3709.961)"><flowRegion
          id="flowRegion37887-3"><rect
            id="rect37889-6"
            width="491.37009"
            height="141.46321"
            x="514.48694"
-           y="2180.1006" /></flowRegion><flowPara
-         style="font-size:36px"
+           y="2180.1006"
+           style="line-height:110.00000238%" /></flowRegion><flowPara
+         style="font-size:36px;line-height:110.00000238%"
          id="flowPara88856">Sample of VOTs implies /b/ and /p/ <flowSpan
-   style="font-size:36px;font-weight:bold"
+   style="font-size:36px;font-weight:bold;line-height:110.00000238%"
    id="flowSpan37905-9">clusters</flowSpan> with particular means and variances</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot37893-7"
-       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-       transform="matrix(1.2440089,0,0,1.2440089,-27.834607,-4246.6156)"><flowRegion
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:110.00000238%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+       transform="matrix(1.2440089,0,0,1.2440089,-27.834607,-4232.6156)"><flowRegion
          id="flowRegion37895-6"><rect
            id="rect37897-0"
-           width="403.02957"
-           height="144.27148"
+           width="430.66895"
+           height="140.01927"
            x="1014.9169"
-           y="2171.6665" /></flowRegion><flowPara
+           y="2171.6665"
+           style="line-height:110.00000238%" /></flowRegion><flowPara
          id="flowPara37899-9"
-         style="font-size:28.93869972px">Mean and variance of clusters <flowSpan
-   style="font-size:28.93869972px;font-weight:bold"
-   id="flowSpan37901-9">predicts</flowSpan> classification function, including <flowSpan
-   style="font-size:28.93869972px;font-weight:bold"
-   id="flowSpan46531-8">category boundary</flowSpan></flowPara></flowRoot>    <g
+         style="font-size:28.93869972px;line-height:110.00000238%"><flowSpan
+   style="font-weight:bold;line-height:110.00000238%"
+   id="flowSpan22689">Learning</flowSpan> is measured by how well listener's category boundary <flowSpan
+   style="font-weight:bold;line-height:110.00000238%"
+   id="flowSpan22691">matches predicted boundary</flowSpan></flowPara></flowRoot>    <g
        id="g88774"
        transform="translate(190.60121,44)">
       <text
@@ -29011,26 +29023,26 @@
            transform="matrix(1.4864018,0,0,1.4864018,-270.19464,-4349.1164)" />
       </g>
       <text
-         inkscape:transform-center-y="66.054055"
-         inkscape:transform-center-x="2.3991122"
+         inkscape:transform-center-y="54.847814"
+         inkscape:transform-center-x="1.992108"
          sodipodi:linespacing="100%"
          id="text79209-1"
-         y="-1792.752"
-         x="1317.5529"
-         style="font-size:31.44813347px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+         y="-1787.5919"
+         x="1316.7065"
+         style="font-size:26.1129055px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
          xml:space="preserve"><tspan
-           y="-1792.752"
-           x="1317.5529"
+           y="-1787.5919"
+           x="1316.7065"
            id="tspan79211-6"
            sodipodi:role="line"
            style="line-height:100%">predicted</tspan><tspan
-           y="-1761.3038"
-           x="1317.5529"
+           y="-1761.479"
+           x="1316.7065"
            sodipodi:role="line"
            id="tspan22271"
            style="line-height:100%">category </tspan><tspan
-           y="-1729.8557"
-           x="1317.5529"
+           y="-1735.3661"
+           x="1316.7065"
            sodipodi:role="line"
            id="tspan22273"
            style="line-height:100%">boundary</tspan></text>
@@ -30227,17 +30239,17 @@
     <text
        xml:space="preserve"
        style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-       x="1057.2815"
+       x="1071.2815"
        y="-1171.9005"
        id="text79205"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="1057.2815"
+         x="1071.2815"
          y="-1171.9005"
          id="tspan89054"
          style="line-height:100%">Category boundaries measured </tspan><tspan
          sodipodi:role="line"
-         x="1057.2815"
+         x="1071.2815"
          y="-1123.9005"
          style="line-height:100%"
          id="tspan22418">from <tspan
@@ -30256,7 +30268,8 @@
          x="1058.1394"
          y="-1129.9005" /></text>
     <g
-       id="g23257">
+       id="g23257"
+       transform="translate(8,0)">
       <g
          transform="matrix(2.5,0,0,2.5,1042.575,-1119.3165)"
          id="surface326">
@@ -30872,7 +30885,7 @@
        xml:space="preserve"
        id="flowRoot80207"
        style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-       transform="matrix(1.1097275,0,0,1.1097275,-153.1828,-3535.2537)"><flowRegion
+       transform="matrix(1.1097275,0,0,1.1097275,-163.1828,-3535.2537)"><flowRegion
          id="flowRegion80209"><rect
            id="rect80211"
            width="664.4903"
@@ -30902,24 +30915,24 @@
        sodipodi:linespacing="125%"
        id="text80231"
        y="-1266.599"
-       x="2456.2136"
+       x="2446.2136"
        style="font-size:73.41934967px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        xml:space="preserve"><tspan
          style="font-size:64px;font-weight:bold"
          y="-1266.599"
-         x="2456.2136"
+         x="2446.2136"
          id="tspan80233"
          sodipodi:role="line">Discussion</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:73.41934967px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
-       x="1053.4337"
+       x="1067.4337"
        y="-1266.599"
        id="text80239"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan80241"
-         x="1053.4337"
+         x="1067.4337"
          y="-1266.599"
          style="font-size:64px;font-weight:bold">Results</tspan></text>
     <g
@@ -31522,21 +31535,21 @@
        id="text80448-2"
        y="315.83243"
        x="616.9505"
-       style="font-size:73.41934967px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+       style="font-size:73.41934967000000256px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#00000d;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        xml:space="preserve"><tspan
-         style="font-size:64px;font-weight:bold"
+         style="font-size:64px;font-weight:bold;fill:#00000d;fill-opacity:1"
          y="315.83243"
          x="616.9505"
          id="tspan80450-6"
-         sodipodi:role="line">Results &amp; Discussion</tspan></text>
+         sodipodi:role="line">Results</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text79205-8-4"
-       y="405.51505"
+       y="425.51505"
        x="617.09491"
        style="font-size:48px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
        xml:space="preserve"><tspan
-         y="405.51505"
+         y="425.51505"
          x="617.09491"
          id="tspan79207-2-8"
          sodipodi:role="line">Category boundaries</tspan></text>
@@ -33249,6 +33262,18 @@
          x="614.54736"
          id="tspan22484"
          sodipodi:role="line">Listeners hear b/p minimal pair word</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:73.41934967px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#00000d;fill-opacity:1;stroke:none;font-family:Helvetica;-inkscape-font-specification:Helvetica"
+       x="1260.175"
+       y="315.83243"
+       id="text22720"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan22722"
+         x="1260.175"
+         y="315.83243"
+         style="font-size:64px;font-weight:bold;fill:#00000d;fill-opacity:1">Discussion</tspan></text>
   </g>
   <path
      style="fill:#cccccc;stroke:none;stroke-width:0.79019402999999999px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"

@@ -1,3 +1,5 @@
+[Poster pdf](poster_portrait.pdf)
+
 # Informativity in adaptation: Supervised and unsupervised learning of linguistic cue distributions #
 
 * **Do people use informative lables during adaptation?**

@@ -18,23 +18,30 @@
     * Labels: lots of information from context (visual, lexical, etc.) that _labels_ cues for listener.
 * Do listeners actually use labels for adaptation when they're provided?  Hasn't been a good test.
 
-```{r preamble, echo=FALSE, results='hide', cache=FALSE}
+```{r preamble, cache=FALSE, warning=FALSE}
 library(knitr)
 knitr::opts_chunk$set(cache=TRUE, 
                       autodep=TRUE,
-                      dev=c('pdf', 'svg', 'png'),
+                      dev=c('png', 'pdf', 'svg'),
+                      fig.retina=2,
                       echo=FALSE,
                       results='hide',
                       warning=FALSE,
                       message=FALSE)
 
-library(lme4)
+## library(devtools)
+## devtools::load_all('../../analysis')
 
 library(devtools)
-devtools::load_all('../../analysis')
+if (! require('supunsup', quietly=TRUE)) {
+  devtools::install_github('kleinschmidt/phonetic-sup-unsup')
+  require('supunsup')
+}
+
+library(dplyr)
 
 # pre-parsed + excluded data from package
-dat <- supunsup_clean
+dat <- supunsup::supunsup_clean
 
 dat_mod <- dat %>%
   filter(trialSupCond == 'unsupervised' | supCond == 'unsupervised') %>%
@@ -44,6 +51,7 @@ dat_mod <- dat %>%
 
 ```{r fit-model}
 
+library(lme4)
 dat_fit <- glmer(respP ~ trial.s * vot_rel.s * supCond * bvotCond +
                    (trial.s * vot_rel.s | subject),
                  data = dat_mod,
@@ -55,9 +63,6 @@ dat_fit <- glmer(respP ~ trial.s * vot_rel.s * supCond * bvotCond +
 ```{r, cache=FALSE}
 library(ggplot2)
 theme_set(theme_bw())
-
-knitr::opts_chunk$set(dev = c('png', 'svg', 'pdf'),
-                      fig.retina = 2)
 
 four_colors <-
   c("#255984",     # blue
@@ -155,12 +160,12 @@ cat_bounds <- category_boundaries(dat_mod, dat_fit) %>% add_experiment
 
 ```{r subject-summary}
 
-n_subj <- analysis::supunsup %>%
+n_subj <- supunsup::supunsup %>%
   group_by(subject) %>%
   summarise %>%
   nrow
 
-n_subj_excluded <- analysis::supunsup_excluded %>%
+n_subj_excluded <- supunsup::supunsup_excluded %>%
   group_by(subject) %>%
   summarise %>%
   nrow
@@ -171,7 +176,7 @@ We ran `r n_subj` subjects on Mechanical Turk, excluded `r n_subj_excluded` for 
 
 ```{r subjects-table, results='asis'}
   
-analysis::supunsup_clean %>%
+supunsup::supunsup_clean %>%
   group_by(supCond, bvotCond, subject) %>%
   summarise %>%
   tally %>%

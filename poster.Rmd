@@ -18,19 +18,20 @@
     * Labels: lots of information from context (visual, lexical, etc.) that _labels_ cues for listener.
 * Do listeners actually use labels for adaptation when they're provided?  Hasn't been a good test.
 
+# Methods
+
+## Preliminaries
+
+Set things up and load data
+
 ```{r preamble, cache=FALSE, warning=FALSE}
 library(knitr)
 knitr::opts_chunk$set(cache=TRUE, 
                       autodep=TRUE,
                       dev=c('png', 'pdf', 'svg'),
                       fig.retina=2,
-                      echo=FALSE,
-                      results='hide',
                       warning=FALSE,
                       message=FALSE)
-
-## library(devtools)
-## devtools::load_all('../../analysis')
 
 library(devtools)
 if (! require('supunsup', quietly=TRUE)) {
@@ -38,20 +39,22 @@ if (! require('supunsup', quietly=TRUE)) {
   require('supunsup')
 }
 
-library(dplyr)
-
 # pre-parsed + excluded data from package
 dat <- supunsup::supunsup_clean
+
+```
+
+Fit a regression model.
+
+```{r fit-model}
+
+library(lme4)
+library(dplyr)
 
 dat_mod <- dat %>%
   filter(trialSupCond == 'unsupervised' | supCond == 'unsupervised') %>%
   mutate_for_lmer()
 
-```
-
-```{r fit-model}
-
-library(lme4)
 dat_fit <- glmer(respP ~ trial.s * vot_rel.s * supCond * bvotCond +
                    (trial.s * vot_rel.s | subject),
                  data = dat_mod,
@@ -59,6 +62,8 @@ dat_fit <- glmer(respP ~ trial.s * vot_rel.s * supCond * bvotCond +
                  control = glmerControl(optimizer = 'bobyqa'))
 
 ```
+
+Lay the groundwork for visualization.
 
 ```{r, cache=FALSE}
 library(ggplot2)
@@ -123,6 +128,8 @@ plot_category_bounds <- function(cat_bounds, dodge_w = 0.75) {
     coord_flip()
 }
 ```
+
+From the fitted model, generate predictions to visualize model fits measure fitted category boundaries.
 
 ```{r make-predictions}
 
@@ -228,14 +235,6 @@ dat %>%
 
 Learning was assessed by fitting a mixed effects logistic regression model, extracting the category boundary (VOT where the predicted response was 50% /b/), and comparing this fitted category boundary to the boundary predicted by the input distribution (maximally ambiguous stimulus based on the /b/ and /p/ distributions).
 
-The formula for the mixed effects model was:
-
-```{r glmer-formula, results='markup'}
-
-formula(dat_fit)
-
-```
-
 Because the model includes slopes for trial, we had to pick where to evaluate the category boundaries.  We picked the point 5/6ths of the way through the experiment, because this was near the end but not so close there's additional uncertainty from edge effects.
 
 # Results 
@@ -278,11 +277,11 @@ dat_ex1 <- dat %>%
 ```
 
 
-```{r a-normal-distribution, fig.show='hide'}
+```{r a-normal-distribution, fig.show='hide', echo=FALSE}
 curve(dnorm, from=-4, to=4)
 ```
 
-```{r a-logistic-function, fig.show='hide'}
+```{r a-logistic-function, fig.show='hide', echo=FALSE}
 curve(plogis, from=-6, to=6)
 ```
 

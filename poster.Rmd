@@ -1,4 +1,11 @@
-[Poster pdf](poster_portrait.pdf)
+---
+title: "Informativity in adaptation: Supervised and unsupervised learning of linguistic cue distributions"
+author: "[Dave F. Kleinschmidt](http://www.davekleinschmidt.com), Rajeev Raizada, & T. Florian Jaeger"
+date: "`r Sys.Date()`"
+output: html_document
+---
+ 
+[Poster presented at CUNY 2015 (PDF)](poster_portrait.pdf)
 
 # Informativity in adaptation: Supervised and unsupervised learning of linguistic cue distributions #
 
@@ -382,3 +389,29 @@ cat_bounds %>%
 * Listeners **don't use labels** to speed up or improve adaptation.
 * More like acquisition: rely on distributions.
 * But other sources of information _do_ matter: less adaptation to weirder distributions (+20 and +30 ms shifts)
+
+# Model output #
+
+For the curious and/or masochistic.  Trial was centered and scaled to range $-0.5--0.5$, VOT was centered around the predicted category boundary for each subject and scaled to increments of continuum steps (+1 is +10ms).  Shift condition was treated as a factor and helmert coded, while supervision was sum-coded with unsupervised as the base level.  Subject random effects intercepts and slopes for trial, VOT, and their interaction were included.
+
+```{r model-output, results='asis'}
+
+library(stargazer)
+
+var_name_subs <- list(
+  c(':', ' : '),
+  c('vot_rel.s', 'VOT'),
+  c('bvotCond', 'Shift'),
+  c('supCond', 'unsup-vs-'),
+  c('trial.s', 'Trial'))
+
+stargazer(dat_fit, float=FALSE, single.row=TRUE,
+          covariate.labels = str_replace_multi(names(fixef(dat_fit)),
+                                               var_name_subs, TRUE),
+          digits = 2, star.cutoffs = c(0.05, 0.01, 0.001),
+          column.labels=c('Experiment 1', 'Experiment 2'), align=TRUE,
+          intercept.bottom=FALSE, model.numbers=FALSE, 
+          dep.var.labels.include=FALSE, dep.var.caption='', 
+          keep.stat = c('n'), type='html')
+
+```

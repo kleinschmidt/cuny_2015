@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="generator" content="knitr" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/github.min.css">
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 <style type="text/css">
 /* Derived from the Docco package by Jeremy Ashkenas: https://github.com/jashkenas/docco/ */
@@ -143,7 +146,7 @@ hljs.LANGUAGES.r=function(a){var b="([a-zA-Z]|\\.[a-zA-Z.])[a-zA-Z0-9._]*";retur
   <body>
     <div id="container">
       <table><!--table start-->
-<tr id="row1"><td class="docs"><div class="pilwrap"><a class="pilcrow" href="#row1">&para;</a></div><p><a href="poster_portrait.pdf">Poster pdf</a></p>
+<tr id="row1"><td class="docs"><div class="pilwrap"><a class="pilcrow" href="#row1">&para;</a></div><p><a href="poster_portrait.pdf">Poster presented at CUNY 2015 (PDF)</a></p>
 
 <h1>Informativity in adaptation: Supervised and unsupervised learning of linguistic cue distributions</h1>
 
@@ -540,6 +543,80 @@ predict_and_plot(filter(dat_pred, supCond %in% c(&#39;mixed&#39;, &#39;unsupervi
 <li>More like acquisition: rely on distributions.</li>
 <li>But other sources of information <em>do</em> matter: less adaptation to weirder distributions (+20 and +30 ms shifts)</li>
 </ul>
+
+<h1>Model output</h1>
+
+</td><td class="code"></td></tr><tr id="row27"><td class="docs"><div class="pilwrap"><a class="pilcrow" href="#row27">&para;</a></div><p>For the curious and/or masochistic.  Trial was centered and scaled to range \(-0.5&ndash;0.5\), VOT was centered around the predicted category boundary for each subject and scaled to increments of continuum steps (+1 is +10ms).  Shift condition was treated as a factor and helmert coded, while supervision was sum-coded with unsupervised as the base level.  Subject random effects intercepts and slopes for trial, VOT, and their interaction were included.</p></td><td class="code"><pre><code class="r">library(stargazer)
+
+var_name_subs &lt;- list(
+  c(&#39;:&#39;, &#39; : &#39;),
+  c(&#39;vot_rel.s&#39;, &#39;VOT&#39;),
+  c(&#39;bvotCond&#39;, &#39;Shift&#39;),
+  c(&#39;supCond&#39;, &#39;unsup-vs-&#39;),
+  c(&#39;trial.s&#39;, &#39;Trial&#39;))
+
+stargazer(dat_fit, float=FALSE, single.row=TRUE,
+          covariate.labels = str_replace_multi(names(fixef(dat_fit)),
+                                               var_name_subs, TRUE),
+          digits = 2, star.cutoffs = c(0.05, 0.01, 0.001),
+          column.labels=c(&#39;Experiment 1&#39;, &#39;Experiment 2&#39;), align=TRUE,
+          intercept.bottom=FALSE, model.numbers=FALSE, 
+          dep.var.labels.include=FALSE, dep.var.caption=&#39;&#39;, 
+          keep.stat = c(&#39;n&#39;), type=&#39;html&#39;)
+</code></pre></td></tr><tr id="row28"><td class="docs"><div class="pilwrap"><a class="pilcrow" href="#row28">&para;</a></div>
+
+<table style="text-align:center"><tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td>Experiment 1</td></tr>
+<tr><td style="text-align:left">(Intercept)</td><td>0.78<sup>***</sup> (0.05)</td></tr>
+<tr><td style="text-align:left">Trial</td><td>0.07 (0.10)</td></tr>
+<tr><td style="text-align:left">VOT</td><td>1.62<sup>***</sup> (0.04)</td></tr>
+<tr><td style="text-align:left">unsup-vs-mixed</td><td>0.04 (0.07)</td></tr>
+<tr><td style="text-align:left">unsup-vs-supervised</td><td>-0.11 (0.07)</td></tr>
+<tr><td style="text-align:left">Shift10</td><td>0.34<sup>***</sup> (0.07)</td></tr>
+<tr><td style="text-align:left">Shift20</td><td>0.42<sup>***</sup> (0.04)</td></tr>
+<tr><td style="text-align:left">Shift30</td><td>0.35<sup>***</sup> (0.03)</td></tr>
+<tr><td style="text-align:left">Trial : VOT</td><td>0.75<sup>***</sup> (0.07)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-mixed</td><td>-0.10 (0.13)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-supervised</td><td>0.06 (0.13)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-mixed</td><td>-0.05 (0.05)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-supervised</td><td>-0.08 (0.05)</td></tr>
+<tr><td style="text-align:left">Trial : Shift10</td><td>-0.07 (0.13)</td></tr>
+<tr><td style="text-align:left">Trial : Shift20</td><td>0.02 (0.08)</td></tr>
+<tr><td style="text-align:left">Trial : Shift30</td><td>-0.14<sup>*</sup> (0.05)</td></tr>
+<tr><td style="text-align:left">VOT : Shift10</td><td>0.01 (0.05)</td></tr>
+<tr><td style="text-align:left">VOT : Shift20</td><td>-0.07<sup>*</sup> (0.03)</td></tr>
+<tr><td style="text-align:left">VOT : Shift30</td><td>-0.09<sup>***</sup> (0.02)</td></tr>
+<tr><td style="text-align:left">unsup-vs-mixed : Shift10</td><td>-0.06 (0.10)</td></tr>
+<tr><td style="text-align:left">unsup-vs-supervised : Shift10</td><td>-0.02 (0.10)</td></tr>
+<tr><td style="text-align:left">unsup-vs-mixed : Shift20</td><td>-0.05 (0.06)</td></tr>
+<tr><td style="text-align:left">unsup-vs-supervised : Shift20</td><td>-0.03 (0.06)</td></tr>
+<tr><td style="text-align:left">unsup-vs-mixed : Shift30</td><td>-0.02 (0.04)</td></tr>
+<tr><td style="text-align:left">unsup-vs-supervised : Shift30</td><td>-0.04 (0.04)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-mixed</td><td>0.07 (0.09)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-supervised</td><td>-0.09 (0.09)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : Shift10</td><td>0.10 (0.09)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : Shift20</td><td>-0.04 (0.05)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : Shift30</td><td>-0.01 (0.04)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-mixed : Shift10</td><td>-0.15 (0.19)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-supervised : Shift10</td><td>0.14 (0.18)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-mixed : Shift20</td><td>-0.08 (0.11)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-supervised : Shift20</td><td>0.18 (0.11)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-mixed : Shift30</td><td>-0.20<sup>**</sup> (0.08)</td></tr>
+<tr><td style="text-align:left">Trial : unsup-vs-supervised : Shift30</td><td>0.15<sup>*</sup> (0.08)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-mixed : Shift10</td><td>-0.05 (0.07)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-supervised : Shift10</td><td>0.02 (0.07)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-mixed : Shift20</td><td>0.02 (0.04)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-supervised : Shift20</td><td>-0.07 (0.04)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-mixed : Shift30</td><td>0.02 (0.03)</td></tr>
+<tr><td style="text-align:left">VOT : unsup-vs-supervised : Shift30</td><td>-0.03 (0.03)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-mixed : Shift10</td><td>-0.16 (0.13)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-supervised : Shift10</td><td>0.04 (0.13)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-mixed : Shift20</td><td>-0.03 (0.07)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-supervised : Shift20</td><td>0.03 (0.08)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-mixed : Shift30</td><td>-0.05 (0.05)</td></tr>
+<tr><td style="text-align:left">Trial : VOT : unsup-vs-supervised : Shift30</td><td>0.02 (0.05)</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>50,724</td></tr>
+<tr><td colspan="2" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td style="text-align:right"><sup>*</sup>p<0.05; <sup>**</sup>p<0.01; <sup>***</sup>p<0.001</td></tr>
+</table>
 </td><td class="code"></td></tr>
       </table><!--table end-->
     </div>
